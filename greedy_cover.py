@@ -9,13 +9,6 @@ def add_to_cover(cover, covered, node_with_adjacency_list):
         covered.add(neighbor)
     return
 
-
-def by_length_comparator(a, b):
-    v, w = a
-    x, y = b
-    return len(w) - len(y)
-
-
 def to_adjacency_lists_sorted_descending_by_outdegree(edgelist):
     dictionary = defaultdict(list)
     for k, v in edgelist:
