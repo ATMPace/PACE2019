@@ -9,6 +9,7 @@ def add_to_cover(cover, covered, node_with_adjacency_list):
         covered.add(neighbor)
     return
 
+
 def to_adjacency_lists_sorted_descending_by_outdegree(edgelist):
     dictionary = defaultdict(list)
     for k, v in edgelist:
