@@ -10,7 +10,7 @@ def add_to_cover(cover, covered, node_with_adjacency_list):
     return
 
 
-def to_adjacency_lists_sorted_descending_by_outdegree(edgelist):
+def to_adjacency_lists_sorted_descending_by_degree(edgelist):
     dictionary = defaultdict(list)
     for k, v in edgelist:
         dictionary[k].append(v)
@@ -21,8 +21,17 @@ def to_adjacency_lists_sorted_descending_by_outdegree(edgelist):
     return adjacency_lists
 
 
+def cover_uncovered_edges(edgelist, cover):
+    for edge in edgelist:
+        (u, v) = edge
+        if not cover.__contains__(u) and not cover.__contains__(v):
+            cover.add(u)
+    return cover
+
+
 def cover_greedily(edgelist):
-    sorted_adjacency_lists = to_adjacency_lists_sorted_descending_by_outdegree(edgelist)
+    # greedy means here: select vertices with high degree first
+    sorted_adjacency_lists = to_adjacency_lists_sorted_descending_by_degree(edgelist)
 
     cover = set()
     covered = set()
@@ -34,7 +43,7 @@ def cover_greedily(edgelist):
             for neighbor in adjacency_list:
                 if not covered.__contains__(neighbor):
                     add_to_cover(cover, covered, node_with_adjacency_list)
-    return cover
+    return cover_uncovered_edges(edgelist, cover)
 
 
 # This is an implementation of the simple greedy algorithm for vertex cover
