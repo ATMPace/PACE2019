@@ -40,9 +40,3 @@ def solve_exactly(edgelist):
     add_constraints_to_model(edgelist, model)
     model.optimize()
     return read_solution(model)
-
-
-edges = [(1, 2), (2, 3), (3, 4), (4, 5), (1, 4), (3, 1), (3, 2), (6, 1), (8, 0), (1, 8)]
-print("input graph as edge list:" + str(edges))
-solution = solve_exactly(edges)
-print("optimal solution " + str(solution))
