@@ -48,6 +48,3 @@ def cover_greedily(edgelist):
                 if not covered.__contains__(neighbor):
                     add_to_cover(cover, covered, node_with_adjacency_list)
     return cover_uncovered_edges(edgelist, cover)
-
-
-
