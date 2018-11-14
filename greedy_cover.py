@@ -29,6 +29,10 @@ def cover_uncovered_edges(edgelist, cover):
     return cover
 
 
+# This is an implementation of the simple greedy algorithm for vertex cover
+# Input a graph given in edge list representation
+# Output a vertex cover
+# The algorithm is known to be a 2-approximation
 def cover_greedily(edgelist):
     # greedy means here: select vertices with high degree first
     sorted_adjacency_lists = to_adjacency_lists_sorted_descending_by_degree(edgelist)
@@ -46,12 +50,4 @@ def cover_greedily(edgelist):
     return cover_uncovered_edges(edgelist, cover)
 
 
-# This is an implementation of the simple greedy algorithm for vertex cover
-# Input a graph given in edge list representation
-# Output a vertex cover
-# The algorithm is known to be a 2-approximation
 
-edges = [(1, 2), (2, 3), (3, 4), (4, 5), (1, 4), (3, 1), (3, 2), (6, 1), (8, 0), (1, 8)]
-print("input graph as edge list:" + str(edges))
-the_cover = cover_greedily(edges)
-print("greedy cover is: " + str(the_cover))
