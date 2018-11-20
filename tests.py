@@ -1,9 +1,13 @@
 from test_instance_creator import *
 from naive_formulation import solve_exactly
-from random import randint
+import benchmark_runner
 
-number_of_nodes = 200
-random_edges = randint(0, pow(2, edge_vector_length(number_of_nodes)) - 1)
-print("random edge vector is " + str(random_edges))
-graph = create_instance(number_of_nodes, random_edges)
+
+# solve one instance
+graph = create_random_graph(number_of_nodes = 200)
+
+print("random graph is " + str(graph))
 print(solve_exactly(graph))
+
+# benchmark of naive formulation with and without greedy start solution
+benchmark_runner.run_benchmark()

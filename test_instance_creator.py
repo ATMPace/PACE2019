@@ -1,3 +1,6 @@
+from random import randint
+
+
 def edge_vector_length(number_nodes):
     return int(number_nodes * (number_nodes - 1) / 2)
 
@@ -14,6 +17,10 @@ def create_instance(number_of_nodes, edge_vector):
             edge_vector_rest = edge_vector_rest >> 1
     return result
 
+
+def create_random_graph(number_of_nodes):
+    edge_list_vector = randint(0, pow(2, edge_vector_length(number_of_nodes)) - 1)
+    return create_instance(number_of_nodes, edge_list_vector)
 
 # example usages
 # example_graph = create_instance(4, 15)
