@@ -7,6 +7,7 @@ def run_benchmark(algorithm_reference, algorithm_to_test, number_of_start_nodes,
     difference_per_iteration = []
     for iter in range(iterations):
         number_of_nodes = number_of_start_nodes + node_increase_per_iteration * iter
+        print("starting iteration " + str(iter + 1) + "/" + str(iterations) + " with number of nodes in G: " + str(number_of_nodes))
         graph = create_random_graph(number_of_nodes)
         duration_reference = AlgorithmRunner(algorithm_reference).run(graph)
         duration_algorithm_to_test = AlgorithmRunner(algorithm_to_test).run(graph)
@@ -48,4 +49,4 @@ def solve_exactly_without_greedy(edge_list):
 
 
 # let's see what the performance gain of the greedy algorithm is
-run_benchmark(solve_exactly_without_greedy, solve_exactly_with_greedy, 100, 25, 20)
+run_benchmark(solve_exactly_without_greedy, solve_exactly_with_greedy, 100, 25, 9)
