@@ -31,12 +31,12 @@ def add_constraints_to_model(edges, model):
         model.addConstr(var_u + var_v >= 1)
 
 
-def solve_exactly(edgelist, create_start_solution=True):
+def solve_exactly(graph, create_start_solution=True):
     model = Model("vertex_cover_IP")
     model.setParam("MIPGap", 0)
-    add_constraints_to_model(edgelist, model)
+    add_constraints_to_model(graph.edge_list(), model)
     if create_start_solution:
-        initial_solution = cover_greedily(edgelist)
+        initial_solution = cover_greedily(graph)
         for initial_var in initial_solution:
             model.getVarByName(str(initial_var)).start = 1
     model.update()

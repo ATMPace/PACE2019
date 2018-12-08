@@ -1,4 +1,4 @@
-from test_instance_creator import create_random_graph
+from graph_factory import create_random_graph
 import time
 
 
@@ -32,9 +32,9 @@ class AlgorithmRunner(object):
     def __init__(self, algorithm):
         self.algorithm = algorithm
 
-    def run(self, edge_list):
+    def run(self, graph):
         clock_before = time.time()
-        self.algorithm(edge_list)
+        self.algorithm(graph)
         clock_after = time.time()
         run_time = clock_after - clock_before
         return run_time

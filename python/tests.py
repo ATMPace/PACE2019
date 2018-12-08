@@ -1,4 +1,4 @@
-from test_instance_creator import *
+from graph_factory import *
 from naive_formulation import solve_exactly
 from benchmark_runner import run_benchmark
 
