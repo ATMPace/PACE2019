@@ -10,12 +10,12 @@ print("solution: " + solve_exactly(graph))
 
 
 # definition of algorithms to benchmark
-def solve_exactly_with_greedy(edge_list):
-    solve_exactly(edge_list, create_start_solution=True)
+def solve_exactly_with_greedy(graph):
+    solve_exactly(graph, create_start_solution=True)
 
 
-def solve_exactly_without_greedy(edge_list):
-    solve_exactly(edge_list, create_start_solution=False)
+def solve_exactly_without_greedy(graph):
+    solve_exactly(graph, create_start_solution=False)
 
 
 # let's see what the performance gain of the greedy algorithm is
