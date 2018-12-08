@@ -6,7 +6,7 @@ Paste your algorithm and performance outputs here.
 ## Example Run On Random Graph
 
 * **Call:** run_benchmark(solve_exactly_without_greedy, solve_exactly_with_greedy, 75, 25, 3)
-* **File Commit Hash:**
+* **Commit Revision Hash:** 64dca95  
 * **Instance:** Randomly created by benchmark function.
 * **Statistics:**  
 *speed up in iterations (absolute seconds, percentage):*  
