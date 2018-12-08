@@ -1,13 +1,22 @@
 from test_instance_creator import *
 from naive_formulation import solve_exactly
-import benchmark_runner
-
+from benchmark_runner import run_benchmark
 
 # solve one instance
-graph = create_random_graph(number_of_nodes = 200)
+graph = create_random_graph(number_of_nodes=200)
 
 print("random graph is " + str(graph))
-print(solve_exactly(graph))
+print("solution: " + solve_exactly(graph))
 
-# benchmark of naive formulation with and without greedy start solution
-benchmark_runner.run_benchmark()
+
+# definition of algorithms to benchmark
+def solve_exactly_with_greedy(edge_list):
+    solve_exactly(edge_list, create_start_solution=True)
+
+
+def solve_exactly_without_greedy(edge_list):
+    solve_exactly(edge_list, create_start_solution=False)
+
+
+# let's see what the performance gain of the greedy algorithm is
+run_benchmark(solve_exactly_without_greedy, solve_exactly_with_greedy, 100, 25, 2)
